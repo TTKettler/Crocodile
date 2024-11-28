@@ -123,7 +123,7 @@ class Transects:
         convert time to year
         """
         time = self.ds.variables['time']
-        if type(t) == np.int:
+        if type(t) == int:
             return num2date(t, time.units).year
         else:
             return np.asarray([y.year for y in np.asarray(num2date(t, time.units))])
