@@ -121,20 +121,20 @@ else:
 xyz_directory = os.path.join(project_directory, 'xyz_files')
 xyz_file = os.path.join(xyz_directory, f'{C.transect}.xyz')
 
-if not os.path.exists(xyz_file):
-    # Obtain initial profile
-    C.x, C.Zb = obtain_initial_profile_from_Jarkus(C)
+# if not os.path.exists(xyz_file):
+#     # Obtain initial profile
+#     C.x, C.Zb = obtain_initial_profile_from_Jarkus(C)
 
-    # Combine x, y, z into a single array with shape (n, 3)
-    y_values = np.full(len(C.Zb), C.transect)  # Assuming y is constant for the transect
-    data = np.column_stack((C.x, y_values, C.Zb))
+#     # Combine x, y, z into a single array with shape (n, 3)
+#     y_values = np.full(len(C.Zb), C.transect)  # Assuming y is constant for the transect
+#     data = np.column_stack((C.x, y_values, C.Zb))
 
-    # Write to XYZ file
-    with open(xyz_file, 'w') as file:
-        for point in data:
-            file.write(f"{point[0]} {point[1]} {point[2]}\n")
+#     # Write to XYZ file
+#     with open(xyz_file, 'w') as file:
+#         for point in data:
+#             file.write(f"{point[0]} {point[1]} {point[2]}\n")
 
-    print(f"XYZ file created successfully at {xyz_file}")
+#     print(f"XYZ file created successfully at {xyz_file}")
 
 else:
     # Read data from XYZ file
