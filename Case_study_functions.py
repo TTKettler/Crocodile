@@ -94,12 +94,17 @@ def import_Jarkus_data(transect_req, years_req):
     ##################################
     ####    RETRIEVE JARKUS DATA  ####
     ##################################
-    with open(r"C:/Users/tkettler/surfdrive/Python/Diffusion_project/Diffusion_model/Settings.txt") as file:
-        settings = json.load(file)
+    #### Uncomment to collect the JARKUS data from the server/local file    
+    #with open(r"C:/Users/tkettler/surfdrive/Python/Diffusion_project/Diffusion_model/Settings.txt") as file:
+    #    settings = json.load(file)
+    #project_directory = settings['project_directory']
+    #url_Jarkus = project_directory + r'/Jarkus_data/transect_r20180914.nc'
+    
+    #### Collect the JARKUS data from the server  
+    url_Jarkus = 'http://opendap.deltares.nl/thredds/dodsC/opendap/rijkswaterstaat/jarkus/profiles/transect_r20240405.nc' #https://downloads.rijkswaterstaatdata.nl/jarkus_profielen/transect_r20180914.nc'
+    Jk = Transects(url=url_Jarkus)
+    ids = Jk.get_data('id')
 
-    # Collect the JARKUS data from the server/local file
-    project_directory = settings['project_directory']
-    url_Jarkus = project_directory + r'/Jarkus_data/transect_r20180914.nc'
     Jk = Transects(url=url_Jarkus)
     ids = Jk.get_data('id')
     idxs = np.isin(transect_req, ids)  # check which transect are available of those that were requested
