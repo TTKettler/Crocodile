@@ -121,13 +121,13 @@ else:
 xyz_directory = os.path.join(project_directory, 'xyz_files')
 xyz_file = os.path.join(xyz_directory, f'{C.transect}.xyz')
 
-# if not os.path.exists(xyz_file):
-#     # Obtain initial profile
-#     C.x, C.Zb = obtain_initial_profile_from_Jarkus(C)
+if not os.path.exists(xyz_file):
+    # Obtain initial profile
+    C.x, C.Zb = obtain_initial_profile_from_Jarkus(C)
 
-#     # Combine x, y, z into a single array with shape (n, 3)
-#     y_values = np.full(len(C.Zb), C.transect)  # Assuming y is constant for the transect
-#     data = np.column_stack((C.x, y_values, C.Zb))
+    # Combine x, y, z into a single array with shape (n, 3)
+    y_values = np.full(len(C.Zb), C.transect)  # Assuming y is constant for the transect
+    data = np.column_stack((C.x, y_values, C.Zb))
 
 #     # Write to XYZ file
 #     with open(xyz_file, 'w') as file:
@@ -212,7 +212,7 @@ if simulate==True:
                     if C.display_bedlevel == True:
                         C.fig, C.ax = initialize_profile_figure()
 
-                      path = project_directory+'/Crocodile/{}'.format(C.version)
+                    path = project_directory+'/Crocodile/{}'.format(C.version)
                     outpath = project_directory+'/Crocodile_output/{}/E{}/SLR{}'.format(str(C.transect) + str(scenario) + scenario_name, str(int(erosion_rate)), SLR_rate) #(scenario_folder, scenario, SLR_rate)
                     # path = 'C:/Users/LocalAdmin/Documents/Python_files/Jarkus_dataset_Christa/jarkus-master/jarkus/Equilibrium_profiles_output/{}'.format(C.version)
                     print("outpath=", outpath)
