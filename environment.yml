@@ -1,0 +1,10 @@
+name: crocodile
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - netcdf4
+

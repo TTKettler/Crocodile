@@ -5,70 +5,89 @@ Cross-shore Coastal Diffusion Long-term Evolution model
 Crocodile is a diffusion-based cross-shore numerical model designed to simulate the decadal-scale morphological evolution of nourished sandy coasts. It is a simple, robust and computationally efficient tool that provides insights into key coastal indicators like profile volume, coastline position, and beach width under various nourishment strategies.
 The model is particularly suited for analysing:
 
-•	Long-term depth-dependent cross-shore sand redistribution in sandy coastal profiles responding to nourishment and sea level rise.
+- Long-term depth-dependent cross-shore sand redistribution in sandy coastal profiles responding to nourishment and sea level rise.
 
-•	Effects of beach, shoreface and mega nourishment strategies on coastal dynamics. It enables simulating both reactive (e.g. hold-the-line) and proactive (predefined nourishment timing and volume) nourishment strategies.
+- Effects of beach, shoreface and mega nourishment strategies on coastal dynamics. It enables simulating both reactive (e.g. hold-the-line) and proactive (predefined nourishment timing and volume) nourishment strategies.
 
-•	Insights into profile steepening, nourishment lifetimes, and volume requirements.
+- Insights into profile steepening, nourishment lifetimes, and volume requirements.
 
 This model has been applied to case studies along the Dutch coastline, demonstrating its utility in predicting long-term morphological trends and optimizing nourishment strategies. 
 
 # How to Use
 Follow the steps below to set up and use the model:
 
-1. Install Dependencies
+## Install Dependencies
    
-Ensure you have Python installed along with the required libraries. You can install the dependencies by running the following command:
-pip install numpy matplotlib scipy pandas netCDF4
+Follow the steps below to create a conda environment with the dependencies:
 
-2. Preparation Steps
+1. Create a conda environment using the provided environment.yml file. This will download and install the dependencies required to run the model.
+
+```
+conda env create -f environemnt.yml
+```
+
+2. Activate the conda environment created above.
+```
+conda activate crocodile
+```
+
+
+
+## Preparation to run the model
    
-a. Update the Project Path
+1. Update the Project Path
 
-•	Open the Crocodile_input.py file.
+    - Open the Crocodile_input.py file.
+    
+    - Modify the project_directory variable to reflect the path to your project folder. Example: project_directory = "/path/to/your/project"
 
-•	Modify the project_directory variable to reflect the path to your project folder. Example: project_directory = "/path/to/your/project"
+2. Create the Required Directory
 
-b. Create the Required Directory
+    - In the root of your project folder, create an empty directory named `0`:
 
-•	In the root of your project folder, create an empty directory named 0:
-
+```
 mkdir 0
+```
 
-•	Grant write permissions to the directory:
+3. Grant write permissions to the directory:
 
+```
 chmod u+w 0
+```
 
-3. Run the Model
+## Run the Model
 
 To execute the model, follow these steps:
 
-•	Navigate to the project folder in your terminal.
+- Navigate to the project folder in your terminal.
 
-•	Run the main script:
+- Run the main script:
 
-python Crocodile_model.py
+```
+python Crocodile_input.py
+```
 
-•	The output will include updated coastal profile simulations and visualizations of morphological changes.
+The output will include updated coastal profile simulations and visualizations of morphological changes.
 
 # File Structure
+
 Key Files
 
-•	Crocodile_input.py: Configuration and setup for the project.
+- Crocodile_input.py: Configuration and setup for the project.
 
-•	Crocodile_model.py: Core script for running the simulation.
+- Crocodile_model.py: Core script for running the simulation.
 
-•	Analysis_functions.py: Analytical utilities for processing simulation outputs.
+- Analysis_functions.py: Analytical utilities for processing simulation outputs.
 
-•	Case_study_functions.py: Tools for handling case-specific data.
+- Case_study_functions.py: Tools for handling case-specific data.
 
-•	Profile_functions.py: Functions for generating and manipulating coastal profiles.
+- Profile_functions.py: Functions for generating and manipulating coastal profiles.
 
-•	Plot_CS_profiles.py: Visualization tools for cross-shore profile analysis.
+- Plot_CS_profiles.py: Visualization tools for cross-shore profile analysis.
 
-•	plot_scenario_snaps.py: Scenario-specific plotting.
+- plot_scenario_snaps.py: Scenario-specific plotting.
 
-•	transects.py: Utilities for managing JARKUS transect data.
+- transects.py: Utilities for managing JARKUS transect data.
 
 
 # Input Data
