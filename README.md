@@ -64,7 +64,7 @@ To execute the model, follow these steps:
 - Run the main script:
 
 ```
-python Crocodile_model.py
+python Crocodile_input.py
 ```
 
 The output will include updated coastal profile simulations and visualizations of morphological changes.
